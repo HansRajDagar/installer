@@ -105,7 +105,7 @@ const managePyPath = path.join(__dirname,  'fullstack', 'full', 'manage.py');
 function createWindow() {
     const win = new BrowserWindow({
         width: 1000,
-        height: 600,
+        height: 800,
         webPreferences: {
             nodeIntegration: false, // Disable Node.js integration
             contextIsolation: true, // Enable context isolation
@@ -152,9 +152,16 @@ app.on('activate', () => {
 // Quit Django server when Electron app is closed
 app.on('before-quit', () => {
 
+    
+    // console.log("the value of djangoServerProcess")
 
+
+    // if(djangoServerProcess){
+    //     djangoServerProcess.kill();
+    // }
 
     if (djangoProcess) {
+        console.log("The Django Process is Killed!")
         djangoProcess.kill();
     }
 
